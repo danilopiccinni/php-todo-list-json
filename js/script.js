@@ -26,15 +26,11 @@ createApp({
 
       // this.newTodo = ''
       let data = {
-        newTodo : this.newTodoAdd
+        newTodo : this.newTodoAdd,
       };
 
       axios.post('./server.php' , data, {headers: {'Content-Type': 'multipart/form-data'}}).then(res => {
-              const newTodo = {
-        name : this.newTodoAdd,
-        fatto : false
-      }
-      this.todoList.push(newTodo)
+        this.getList()
       })
     },
   },
