@@ -28,7 +28,12 @@
           {{ todo.name }}
         </li>
       </ul>
+    </div>
 
+
+    <div class="container">
+      <input v-model="newTodo" type="text">
+      <button @click="addTodo()">Aggiungi</button>
     </div>
 
   </div>

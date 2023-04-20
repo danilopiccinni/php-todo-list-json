@@ -4,6 +4,7 @@ createApp({
   data() {
     return {
       todoList : [],
+      newTodo : "",
     }
   },
 
@@ -14,7 +15,18 @@ createApp({
         console.log(res.data)
         this.todoList = res.data
       })
-    }
+    },
+
+    addTodo() {
+      const newTodo = {
+        name : this.newTodo,
+        fatto : false
+      }
+      this.todoList.push(newTodo)
+
+      this.newTodo = ''
+
+    },
   },
 
   mounted() {
