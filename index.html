@@ -23,7 +23,7 @@
     <div class="container">
 
       <ul>
-        <li v-for="todo in todoList" :class="todo.fatto ? 'sbarrato':''">
+        <li v-for="(todo,index) in todoList" :class="todo.fatto ? 'sbarrato':''" @click="sbarra(index)">
           {{ todo.name }}
         </li>
       </ul>

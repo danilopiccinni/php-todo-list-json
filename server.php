@@ -1,5 +1,29 @@
 <?php 
 
+if(isset($_POST['indextochange'])) {
+
+        // prende la lista jspon
+        $todoListJson = file_get_contents('todos.json');
+        // la trasforma
+        $todoList = json_decode($todoListJson);
+
+        // if($todoList[$_POST['indextochange']]['fatto']) {
+        //     $todoList[$_POST['indextochange']]['fatto']=false;
+        // }else {
+        //     $todoList[$_POST['indextochange']]['fatto']=true;
+        // };
+
+        $todoList[$_POST['indextochange']]->fatto = !$todoList[$_POST['indextochange']]->fatto;
+
+        // ritrasforma
+        $newTodoList = json_encode($todoList);
+
+        // RIMETTO LISTA NEL JSON
+        file_put_contents('todos.json' , $newTodoList);
+
+
+}
+
 // controllo se è stata fatta una richiesta post axios
 if(isset($_POST['newTodo'])) {
     $newElement= [

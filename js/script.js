@@ -12,7 +12,7 @@ createApp({
     getList(){
       // richiesta axios per ricevere dal file server.php
       axios.get('./server.php').then(res => {
-        console.log(res.data)
+
         this.todoList = res.data
       })
     },
@@ -30,6 +30,15 @@ createApp({
 
       this.newTodoAdd = ''
     },
+
+    sbarra(index){
+      let data = {
+        indextochange : index,
+      }
+      axios.post('./server.php' , data, {headers: {'Content-Type': 'multipart/form-data'}}).then(res => {
+        this.getList()
+      })
+    }
   },
 
   mounted() {
