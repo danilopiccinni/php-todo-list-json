@@ -25,6 +25,7 @@
       <ul>
         <li v-for="(todo,index) in todoList" :class="todo.fatto ? 'sbarrato':''" @click="sbarra(index)">
           {{ todo.name }}
+          <button @click="cancella(index)">x</button>
         </li>
       </ul>
     </div>

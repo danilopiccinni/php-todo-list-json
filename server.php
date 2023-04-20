@@ -1,5 +1,20 @@
 <?php 
 
+if(isset($_POST['indextodelete'])) {
+    // prende la lista jspon
+    $todoListJson = file_get_contents('todos.json');
+    // la trasforma
+    $todoList = json_decode($todoListJson);
+
+    array_splice($todoList, $_POST['indextodelete'] , 1);
+
+    // ritrasforma
+    $newTodoList = json_encode($todoList);
+
+    // RIMETTO LISTA NEL JSON
+    file_put_contents('todos.json' , $newTodoList);
+}
+
 if(isset($_POST['indextochange'])) {
 
         // prende la lista jspon

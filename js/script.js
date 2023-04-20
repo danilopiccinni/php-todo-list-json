@@ -38,6 +38,16 @@ createApp({
       axios.post('./server.php' , data, {headers: {'Content-Type': 'multipart/form-data'}}).then(res => {
         this.getList()
       })
+    },
+
+    cancella(index) {
+      let data = {
+        indextodelete : index,
+      }
+
+      axios.post('./server.php' , data, {headers: {'Content-Type': 'multipart/form-data'}}).then(res => {
+        this.getList()
+      })
     }
   },
 
