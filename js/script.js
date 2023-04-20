@@ -18,20 +18,17 @@ createApp({
     },
 
     addTodo() {
-      // const newTodo = {
-      //   name : this.newTodo,
-      //   fatto : false
-      // }
-      // this.todoList.push(newTodo)
 
-      // this.newTodo = ''
       let data = {
         newTodo : this.newTodoAdd,
       };
+      
 
       axios.post('./server.php' , data, {headers: {'Content-Type': 'multipart/form-data'}}).then(res => {
         this.getList()
       })
+
+      this.newTodoAdd = ''
     },
   },
 
