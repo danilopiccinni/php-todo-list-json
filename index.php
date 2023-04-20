@@ -32,7 +32,7 @@
 
 
     <div class="container">
-      <input v-model="newTodo" type="text">
+      <input v-model="newTodoAdd" type="text">
       <button @click="addTodo()">Aggiungi</button>
     </div>
 
